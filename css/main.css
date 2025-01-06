@@ -18,10 +18,48 @@
 
 .gnb li a {
     display: block; /* a는 인라인 요소이기때문에 block줘야 함 */
-    padding: 12px 20px; /* 클릭의 영역 부분 넓히기 위해 gap 대신 padding으로 */
+    padding: 0 20px; /* 클릭의 영역 부분 넓히기 위해 gap 대신 padding으로 */
     font-weight: 700;
     font-size: 18px;
     color: var(--title-color);
+}
+
+.gnb li a i {
+    /* border: 1px solid #f00; */
+    display: block;
+    /* height: 100%; */
+    padding: 12px 0;
+
+    position: relative;
+}
+
+.gnb li a:hover {
+    color: var(--main-color);
+}
+
+.gnb li a i::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+
+    /* 가로 기준 중앙 정렬
+    left: 50%;
+    transform: translateX(-50%); */
+
+    left: auto;
+    right: 0;
+
+    width: 0%;
+    height: 3px;
+    background: var(--main-color);
+    transition: 0.4s;
+}
+
+.gnb li a:hover i::after {
+    width: 100%;
+    left: 0;
+    right: auto;
 }
 
 /* button 인라인 블록 요소 둘 다 가짐 */
